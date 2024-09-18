@@ -1,0 +1,58 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Gestion de Alumnos</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    @for (card of cards | async; track card) {
+      <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+             Alumnos
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <table>
+        @for(elementStudent of studentArray; track elementStudent) {
+          <tr>
+              <td>
+                {{elementStudent.id}}
+              </td>
+              <td>
+                <a (click)="showName(elementStudent.name)">{{elementStudent.name}}</a>
+              </td>
+              <td>
+                <button mat-button (click)="deleteStudent(elementStudent.id)">Delete</button>
+              </td>
+            </tr>
+          
+        }
+            </table>
+        </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    }
+   </mat-grid-list>
+
+   <div class="form-container">
+    <div class="form-card">
+      <h2>Agregar Estudiante</h2>
+      <form>
+        
+        <div class="form-group">
+          <label for="nameInput">Nombre del Estudiante</label>
+          <input type="text" id="nameInput" #nameInput placeholder="Ingresa el nombre">
+        </div>
+  
+       
+        <div class="form-group">
+          <label for="asignaturesInput">Asignaturas</label>
+          <input type="text" id="asignaturesInput" #asignaturesInput placeholder="Ingresa las asignaturas">
+        </div>
+  
+        <button type="button" class="btn" (click)="addStudent(nameInput.value)">Agregar</button>
+      </form>
+    </div>
+  </div>
+
+
+
+</div>

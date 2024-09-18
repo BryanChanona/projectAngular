@@ -1,0 +1,14 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <span (click)="goToLink('https://developer.mozilla.org/es/docs/Web/JavaScript')">Documentación JS</span>
+  </button>
+  <button mat-menu-item>
+    <span (click)="goToLink('https://docs.oracle.com/en/java/')">Documentación Java</span>
+  </button>
+  <button mat-menu-item>
+    <span (click)="goToLink('https://es.react.dev/learn')">Documentación React</span>
+  </button>
+</mat-menu>
